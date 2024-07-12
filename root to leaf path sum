@@ -1,0 +1,18 @@
+
+class Solution {
+    boolean helper(Node root,int target,int sum){
+        if(root==null){
+            return false;
+        }
+        sum+=root.data;
+        if(root.left==null&&root.right==null){
+            return sum==target;
+        }
+        return helper(root.left,target,sum)||helper(root.right,target,sum);
+    }
+    /*you are required to complete this function */
+    boolean hasPathSum(Node root, int target) {
+        // Your code here
+        return helper(root,target,0);
+    }
+}
